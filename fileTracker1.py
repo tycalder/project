@@ -1,12 +1,12 @@
 import datetime 
 from time import sleep
 import os 
-from Modules import *
+#from Modules import *
 from picamera import PiCamera
 from gps import *
 import time
 
-camera = PiCamera()
+#camera = PiCamera()
 
 #def newSnippet(textFile, videoFile, Position):
 #updateLatest()
