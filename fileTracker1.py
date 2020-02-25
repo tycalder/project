@@ -1,0 +1,75 @@
+import datetime 
+from time import sleep
+import os 
+from Classes import *
+from picamera import PiCamera
+from gps import *
+import time
+
+camera = PiCamera()
+
+#def newSnippet(textFile, videoFile, Position):
+#updateLatest()
+#updateEarliest()
+#updateCurrent()
+#PiCam Function()
+
+#Creates a txt file with filename and format: Date    Time    GPS Data    Speed
+def create_file(filename:str):
+    fileName = filename + ".txt"
+    f = open(fileName, "w")
+    f.write(fileName + "\n")
+    f.write("Date        Time        GPS Co-ords    Speed [km/h]\n")
+    f.close
+
+#Function to get GPS Data
+
+def get_GPS_data():
+    gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
+    print 'latitude\tlongitude\ttime utc\t\t\taltitude\tepv\tept\tspeed\tclimb'
+
+    try:
+        while True:
+            report = gpsd.next()
+            if report['class'] == 'TPV':
+
+                print getattr(report,'lat',0.0), "\t"
+                print getattr(report,'lon',0.0),"\t",
+                print getattr(report,'time',''),"\t",
+                print getattr(report,'alt','nan'),"\t\t",
+                print getattr(report,'epv','nan'),"\t",
+                print getattr(report,'ept','nan'),"\t",
+                print getattr(report,'speed','nan'),"\t",
+                print getattr(report,'climb','nan'),"\t"
+
+        time.sleep(1)
+
+    except (KeyboardInterrupt, SystemExit):
+        print "Done. \nExiting"
+
+
+#Function to get speed, not needed anymore taken care of in previous funciton
+
+
+def add_to_file(fileName: str):
+    f = open(fileName, "a")
+    for i in range(2):
+        dateTime = datetime.datetime.now()
+        date = str(dateTime.year) +":" + str(dateTime.month) + ":" + str(dateTime.day)
+        tm = str(dateTime.hour) + ":" + str(dateTime.minute) + ":" + str(dateTime.second)
+        info = date + "    " + tm
+        #gpsData = callfunction
+        f.write(info + "     GPS Data\n")
+        time.sleep(1)
+    f.close
+
+#Initiates an array with 10 strings
+def initiate(arrayName):
+    arrayName = []
+    for i in range(11):
+        trackingArray.append(str(i))
+       
+#def recycle(filename):
+
+#initiate(test)
+#filename Function 
