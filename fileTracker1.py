@@ -1,7 +1,7 @@
 import datetime 
 from time import sleep
 import os 
-from Modules import *
+from Classes import *
 from picamera import PiCamera
 from gps import *
 import time
