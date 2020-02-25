@@ -15,12 +15,12 @@ camera = PiCamera()
 #PiCam Function()
 
 #Creates a txt file with filename and format: Date    Time    GPS Data    Speed
-def create_file(filename:str):
-    fileName = filename + ".txt"
-    f = open(fileName, "w")
-    f.write(fileName + "\n")
-    f.write("Date        Time        GPS Co-ords    Speed [km/h]\n")
-    f.close
+# def create_file(filename:str):
+#     fileName = filename + ".txt"
+#     f = open(fileName, "w")
+#     f.write(fileName + "\n")
+#     f.write("Date        Time        GPS Co-ords    Speed [km/h]\n")
+#     f.close
 
 #Function to get GPS Data
 
@@ -51,23 +51,23 @@ def get_GPS_data():
 #Function to get speed, not needed anymore taken care of in previous funciton
 
 
-def add_to_file(fileName: str):
-    f = open(fileName, "a")
-    for i in range(2):
-        dateTime = datetime.datetime.now()
-        date = str(dateTime.year) +":" + str(dateTime.month) + ":" + str(dateTime.day)
-        tm = str(dateTime.hour) + ":" + str(dateTime.minute) + ":" + str(dateTime.second)
-        info = date + "    " + tm
-        #gpsData = callfunction
-        f.write(info + "     GPS Data\n")
-        time.sleep(1)
-    f.close
+# def add_to_file(fileName: str):
+#     f = open(fileName, "a")
+#     for i in range(2):
+#         dateTime = datetime.datetime.now()
+#         date = str(dateTime.year) +":" + str(dateTime.month) + ":" + str(dateTime.day)
+#         tm = str(dateTime.hour) + ":" + str(dateTime.minute) + ":" + str(dateTime.second)
+#         info = date + "    " + tm
+#         #gpsData = callfunction
+#         f.write(info + "     GPS Data\n")
+#         time.sleep(1)
+#     f.close
 
-#Initiates an array with 10 strings
-def initiate(arrayName):
-    arrayName = []
-    for i in range(11):
-        trackingArray.append(str(i))
+# #Initiates an array with 10 strings
+# def initiate(arrayName):
+#     arrayName = []
+#     for i in range(11):
+#         trackingArray.append(str(i))
        
 #def recycle(filename):
 
