@@ -24,6 +24,8 @@ import time
 
 #Function to get GPS Data
 
+print "This code is actually running"
+
 def get_GPS_data():
     gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
     print 'latitude\tlongitude\ttime utc\t\t\taltitude\tepv\tept\tspeed\tclimb'
