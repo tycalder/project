@@ -27,27 +27,24 @@ import time
 print "This code is actually running"
 
 #def get_GPS_data():
-    gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
-    print 'latitude\tlongitude\ttime utc\t\t\taltitude\tepv\tept\tspeed\tclimb'
+gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
+print 'latitude\tlongitude\ttime utc\t\t\taltitude\tepv\tept\tspeed\tclimb'
 
-    try:
-        while True:
-            report = gpsd.next()
-            if report['class'] == 'TPV':
-
-                print getattr(report,'lat',0.0), "\t"
-                print getattr(report,'lon',0.0),"\t",
-                print getattr(report,'time',''),"\t",
-                print getattr(report,'alt','nan'),"\t\t",
-                print getattr(report,'epv','nan'),"\t",
-                print getattr(report,'ept','nan'),"\t",
-                print getattr(report,'speed','nan'),"\t",
-                print getattr(report,'climb','nan'),"\t"
-
-        time.sleep(1)
-
-    except (KeyboardInterrupt, SystemExit):
-        print "Done. \nExiting"
+try:
+    while True:
+        report = gpsd.next()
+        if report['class'] == 'TPV':
+            print getattr(report,'lat',0.0), "\t"
+            print getattr(report,'lon',0.0),"\t",
+            print getattr(report,'time',''),"\t",
+            print getattr(report,'alt','nan'),"\t\t",
+            print getattr(report,'epv','nan'),"\t",
+            print getattr(report,'ept','nan'),"\t",
+            print getattr(report,'speed','nan'),"\t",
+            print getattr(report,'climb','nan'),"\t"
+    time.sleep(1)
+except (KeyboardInterrupt, SystemExit):
+    print "Done. \nExiting"
 
 
 #Function to get speed, not needed anymore taken care of in previous funciton
