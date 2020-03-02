@@ -44,7 +44,7 @@ try:
             print getattr(report,'climb','nan'),"\t"
     time.sleep(1)
 except (KeyboardInterrupt, SystemExit):
-    print "Done. \nExiting"
+    print "Done. \nExiting" 
 
 
 #Function to get speed, not needed anymore taken care of in previous funciton
