@@ -64,7 +64,7 @@ except (KeyboardInterrupt, SystemExit):
  """
 
 #def return_GPS_data(): 
-f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.csv','w')
+f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.txt','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 print 'latitude\tlongitude\ttime\tspeed\tclimb'
 f.write ("latitutde,longitude,time,speed")
@@ -83,7 +83,7 @@ try:
             print time, "\t\t",            
             print speed, "\t",
                
-            f.write(lat + ',' + lon +',' + time +',' + speed + '\n')
+            f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
 
             time.sleep(1)
 
@@ -118,4 +118,4 @@ except (KeyboardInterrupt, SystemExit):
 #def recycle(filename):
 
 #initiate(test)
-#filename Function 
+#filename Function
