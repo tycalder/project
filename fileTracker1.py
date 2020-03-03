@@ -83,7 +83,7 @@ try:
             print time, "\t\t",            
             print speed, "\t",
                
-            f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
+            f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n'+ "function is working")
 
             time.sleep(1)
 
