@@ -53,7 +53,7 @@ try:
             print speed, "\t",
             print climb, "\t",
             
-            f.write(lat + ',' + lon ',' + time ',' + alt + ',' + ept _',' + speed + ',' + climb + '\n')
+            #f.write(lat + ',' + lon ',' + time ',' + alt + ',' + ept _',' + speed + ',' + climb + '\n')
 
             time.sleep(1)
 
