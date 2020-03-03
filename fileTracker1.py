@@ -4,7 +4,7 @@ import os
 #from Modules import *
 from picamera import PiCamera
 from gps import *
-import time
+import time, inspect
 
 #camera = PiCamera()
 
@@ -27,25 +27,39 @@ import time
 print "This code is actually running"
 
 #def get_GPS_data():
+f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.csv','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 print 'latitude\tlongitude\ttime utc\t\t\taltitude\tepv\tept\tspeed\tclimb'
+f.write ("latitutde,longitude,time,altitude,epv,speed,climb")
 
 try:
     while True:
         report = gpsd.next()
         if report['class'] == 'TPV':
-            print getattr(report,'lat',0.0), "\t"
-            print getattr(report,'lon',0.0),"\t",
-            print getattr(report,'time',''),"\t",
-            print getattr(report,'alt','nan'),"\t\t",
-            print getattr(report,'epv','nan'),"\t",
-            print getattr(report,'ept','nan'),"\t",
-            print getattr(report,'speed','nan'),"\t",
-            print getattr(report,'climb','nan'),"\t"
-    time.sleep(1)
+            lat = str(getattr(report,'lat',0.0)),
+            lon = str(getattr(report,'lon',0.0)),
+            time = str(getattr(report,'time','')),
+            alt = str(getattr(report,'alt','nan')),
+            epv = str(getattr(report,'epv','nan')),
+            ept = str(getattr(report,'ept','nan')),
+            speed = str(getattr(report,'speed','nan')),
+            climb = str(getattr(report,'climb','nan')),
+            
+            print lat, "\t",
+            print lon, "\t",
+            print time, "\t\t",
+            print alt, "\t",
+            print ept, "\t",
+            print speed, "\t",
+            print climb, "\t",
+            
+            f.write(lat + ',' + lon ',' + time ',' + alt + ',' + ept _',' + speed + ',' + climb + '\n')
+
+            time.sleep(1)
+
 except (KeyboardInterrupt, SystemExit):
     print "Done. \nExiting" 
-
+    f.close()
 
 #Function to get speed, not needed anymore taken care of in previous funciton
 
