@@ -66,7 +66,7 @@ except (KeyboardInterrupt, SystemExit):
 test = "testing to see if string can be used"
 
 #def return_GPS_data(): 
-f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.text','w')
+f = open(time.strftime("%Y%m%d-%H%M%S")+'_GPSData.txt','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 print 'latitude\tlongitude\ttime\tspeed\tclimb'
 f.write ('latitutde,longitude,time,speed')
