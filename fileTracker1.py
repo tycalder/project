@@ -63,6 +63,8 @@ except (KeyboardInterrupt, SystemExit):
     f.close()    
  """
 
+test = "testing to see if string can be used"
+
 #def return_GPS_data(): 
 f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.txt','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
@@ -83,7 +85,7 @@ try:
             print time, "\t\t",            
             print speed, "\t",
                
-            f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n'+ "function is working")
+            f.write(test+at + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
 
             time.sleep(1)
 
