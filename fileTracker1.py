@@ -25,9 +25,10 @@ import time, inspect
 #Function to get GPS Data
 
 print "This code is actually running"
+    
 
 #def get_GPS_data():
-f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.csv','w')
+""" f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.csv','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 print 'latitude\tlongitude\ttime utc\t\t\taltitude\tepv\tept\tspeed\tclimb'
 f.write ("latitutde,longitude,time,altitude,epv,speed,climb")
@@ -53,13 +54,45 @@ try:
             print speed, "\t",
             print climb, "\t",
             
-            #f.write(lat + ',' + lon ',' + time ',' + alt + ',' + ept _',' + speed + ',' + climb + '\n')
+            f.write(lat + ',' + lon ',' + time ',' + alt + ',' + ept + ',' + speed + ',' + climb + '\n')
+
+            time.sleep(1)
+
+except (KeyboardInterrupt, SystemExit):
+    print "Done. \nExiting" 
+    f.close()    
+ """
+
+#def return_GPS_data(): 
+f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.csv','w')
+gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
+print 'latitude\tlongitude\ttime\tspeed\tclimb'
+f.write ("latitutde,longitude,time,speed")
+
+try:
+    while True:
+        report = gpsd.next()
+        if report['class'] == 'TPV':
+            lat = str(getattr(report,'lat',0.0)),
+            lon = str(getattr(report,'lon',0.0)),
+            time = str(getattr(report,'time','')),
+            speed = str(getattr(report,'speed','nan')),
+         
+            print lat, "\t",
+            print lon, "\t",
+            print time, "\t\t",            
+            print speed, "\t",
+               
+            f.write(lat + ',' + lon ',' + time ',' + speed + '\n')
 
             time.sleep(1)
 
 except (KeyboardInterrupt, SystemExit):
     print "Done. \nExiting" 
     f.close()
+
+#return lat, lon, time, speed
+
 
 #Function to get speed, not needed anymore taken care of in previous funciton
 

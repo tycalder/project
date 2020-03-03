@@ -1,0 +1,6 @@
+class GPS_data:
+
+str lat
+str lon
+str time
+str speed
