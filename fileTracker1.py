@@ -63,13 +63,13 @@ except (KeyboardInterrupt, SystemExit):
     f.close()    
  """
 
-test = "testing to see if string can be used"
+
 
 #def return_GPS_data(): 
 f = open(time.strftime("%Y%m%d-%H%M%S")+'_GPSData.txt','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 print 'latitude\tlongitude\ttime\tspeed\tclimb'
-f.write ('latitutde,longitude,time,speed')
+f.write ('latitutde'+'\t'+'longitude'+'\t'+'time'+'\t'+'speed')
 
 try:
     while True:
@@ -84,13 +84,12 @@ try:
             print lon, "\t",
             print time, "\t\t",            
             print speed, "\t",
-
-            f.write(test)   
-            #f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
+  
+            f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
 
             time.sleep(1)
 
-except (KeyboardInterrupt, SystemExit):
+except (KeyboardInterrupt, SystemExit): #also need to add the bit if crash has occured
     print "Done. \nExiting" 
     f.close()
 
