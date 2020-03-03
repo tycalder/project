@@ -84,8 +84,9 @@ try:
             print lon, "\t",
             print time, "\t\t",            
             print speed, "\t",
-               
-            f.write(test+at + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
+
+            f.write(test)   
+            f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
 
             time.sleep(1)
 
