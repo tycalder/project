@@ -23,9 +23,7 @@ import time, inspect
 #     f.close
 
 #Function to get GPS Data
-
-print "This code is actually running"
-    
+   
 
 #def get_GPS_data():
 """ f = open(time.strftime("%Y%m%d-%H%M%S")+'_GSPData.csv','w')
