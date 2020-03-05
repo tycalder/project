@@ -61,8 +61,6 @@ except (KeyboardInterrupt, SystemExit):
     f.close()    
  """
 
-
-
 #def return_GPS_data(): 
 f = open(time.strftime("%Y%m%d-%H%M%S")+'_GPSData.txt','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
