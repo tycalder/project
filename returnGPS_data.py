@@ -21,4 +21,6 @@ def return_GPS_data():
                 speed = str(getattr(report,'speed','nan')),
                 # time.sleep(1)
 
+              
+
     return (lat+ "\t" + lon + "\t" + time + "\t" + speed)
