@@ -23,7 +23,7 @@ import time, inspect
 #     f.close
 
 def return_GPS_data(): 
-# f = open(time.strftime("%Y%m%d-%H%M%S")+'_GPSData.txt','w')
+f = open(time.strftime("%Y%m%d-%H%M%S")+'_GPSData.txt','w')
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 # print 'latitude\tlongitude\ttime\tspeed\tclimb'
 # f.write ('latitutde'+'\t'+'longitude'+'\t'+'time'+'\t'+'speed')
@@ -42,6 +42,8 @@ try:
             # print speed, "\t",
   
             # f.write(lat + '\t' + lon +'\t'+ time +'\t'+ speed + '\n')
+
+            f.write("Text file created properly")
 
             time.sleep(1)
 
